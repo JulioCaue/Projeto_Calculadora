@@ -57,7 +57,7 @@ while True:
                                 multiplicando=int(multiplicando)
                                 conjunto_de_numeros.append(multiplicando)
                             except:
-                                print (f"resultado da soma: {math.prod(conjunto_de_numeros)}")
+                                print (f"resultado da multiplicação: {math.prod(conjunto_de_numeros)}")
                                 conjunto_de_numeros=[]
                                 break
                         except Exception as apelido_do_erro:
