@@ -2,9 +2,7 @@ conjunto_de_numeros=[]
 import math
 
 
-def operação_com_ordem(sinal):
-    NumA=input('Escolha o primeiro numero: ')
-    NumB=input('Escolha o segundo numero: ')
+def operação_com_ordem(NumA,NumB,sinal):
     NumA=int(NumA) 
     NumB=int(NumB)
     if sinal==('-'):
@@ -14,7 +12,7 @@ def operação_com_ordem(sinal):
         resto=NumA%NumB
 
     if sinal==('-'):
-        return int (f"resultado da subtração: {resultado}.")
+        return (f"resultado da subtração: {resultado}.")
     else:
         return (f"resultado da divisão: {resultado} com resto {resto}.")
 
@@ -37,8 +35,10 @@ while True:
             
             #faz subtração
             elif int(escolha_menu)==2:
+                NumA=input('Escolha o primeiro numero: ')
+                NumB=input('Escolha o segundo numero: ')
                 sinal=('-')
-                resultado=operação_com_ordem(sinal)
+                resultado=operação_com_ordem(NumA,NumB,sinal)
                 print (resultado)
 
             #faz multiplicação
@@ -54,8 +54,10 @@ while True:
                             break
             #faz divisão
             elif int(escolha_menu)==4:
+                NumA=input('Escolha o primeiro numero: ')
+                NumB=input('Escolha o segundo numero: ')
                 sinal=('/')
-                resultado=operação_com_ordem(sinal)
+                resultado=operação_com_ordem(NumA,NumB,sinal)
                 print (resultado)
 
         #fecha programa se opção for 5, ou printa que não faz parte.
