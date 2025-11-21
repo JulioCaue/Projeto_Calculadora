@@ -44,7 +44,7 @@ while True:
             #faz multiplicação
             elif int(escolha_menu)==3:
                 while True:
-                        multiplicando=input('Escolha um numero para somar ou escreva uma letra para finalizar: ')
+                        multiplicando=input('Escolha um numero para multiplicar ou escreva uma letra para finalizar: ')
                         try: 
                             multiplicando=int(multiplicando)
                             conjunto_de_numeros.append(multiplicando)
