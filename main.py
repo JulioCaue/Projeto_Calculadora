@@ -8,8 +8,11 @@ def operação_com_ordem(NumA,NumB,sinal):
     if sinal==('-'):
         resultado=NumA-NumB
     else:
-        resultado=NumA//NumB
-        resto=NumA%NumB
+        try:
+            resultado=NumA//NumB
+            resto=NumA%NumB
+        except:
+            return "não é possivel dividir por zero."
 
     if sinal==('-'):
         return (f"resultado da subtração: {resultado}.")
@@ -24,42 +27,51 @@ while True:
             #faz soma
             if int(escolha_menu)==1:
                 while True:
-                    somando=input('Escolha um numero para somar ou escreva uma letra para finalizar: ')
-                    try: 
-                        somando=int(somando)
-                        conjunto_de_numeros.append(somando)
-                    except:
-                        print (f"resultado da soma: {sum(conjunto_de_numeros)}")
-                        conjunto_de_numeros=[]
-                        break
-            
+                    try:    
+                        somando=input('Escolha um numero para somar ou escreva uma letra para finalizar: ')
+                        try: 
+                            somando=int(somando)
+                            conjunto_de_numeros.append(somando)
+                        except:
+                            print (f"resultado da soma: {sum(conjunto_de_numeros)}")
+                            conjunto_de_numeros=[]
+                            break
+                    except Exception as apelido_do_erro:
+                        print (f'Um erro foi encontrado: {apelido_do_erro}')
             #faz subtração
             elif int(escolha_menu)==2:
-                NumA=input('Escolha o primeiro numero: ')
-                NumB=input('Escolha o segundo numero: ')
-                sinal=('-')
-                resultado=operação_com_ordem(NumA,NumB,sinal)
-                print (resultado)
-
+                try:
+                    NumA=input('Escolha o primeiro numero: ')
+                    NumB=input('Escolha o segundo numero: ')
+                    sinal=('-')
+                    resultado=operação_com_ordem(NumA,NumB,sinal)
+                    print (resultado)
+                except Exception as apelido_do_erro:
+                    print (f'Um erro foi encontrado: {apelido_do_erro}')
             #faz multiplicação
             elif int(escolha_menu)==3:
                 while True:
-                        multiplicando=input('Escolha um numero para multiplicar ou escreva uma letra para finalizar: ')
-                        try: 
-                            multiplicando=int(multiplicando)
-                            conjunto_de_numeros.append(multiplicando)
-                        except:
-                            print (f"resultado da soma: {math.prod(conjunto_de_numeros)}")
-                            conjunto_de_numeros=[]
-                            break
+                        try:
+                            multiplicando=input('Escolha um numero para multiplicar ou escreva uma letra para finalizar: ')
+                            try: 
+                                multiplicando=int(multiplicando)
+                                conjunto_de_numeros.append(multiplicando)
+                            except:
+                                print (f"resultado da soma: {math.prod(conjunto_de_numeros)}")
+                                conjunto_de_numeros=[]
+                                break
+                        except Exception as apelido_do_erro:
+                            print (f'Um erro foi encontrado: {apelido_do_erro}')
             #faz divisão
             elif int(escolha_menu)==4:
-                NumA=input('Escolha o primeiro numero: ')
-                NumB=input('Escolha o segundo numero: ')
-                sinal=('/')
-                resultado=operação_com_ordem(NumA,NumB,sinal)
-                print (resultado)
-
+                try:
+                    NumA=input('Escolha o primeiro numero: ')
+                    NumB=input('Escolha o segundo numero: ')
+                    sinal=('/')
+                    resultado=operação_com_ordem(NumA,NumB,sinal)
+                    print (resultado)
+                except Exception as apelido_do_erro:
+                    print (f'Um erro foi encontrado: {apelido_do_erro}')
         #fecha programa se opção for 5, ou printa que não faz parte.
         elif int(escolha_menu)==5:
             break
@@ -67,5 +79,5 @@ while True:
             print ('Opção não faz parte do menu.')
 
         #Fecha o programa caso receba "sair" e Continua se for inesistente.
-    except:
-        print ('opção inesistente.')
+    except Exception as apelido_do_erro:
+        print (f'opção inesistente, ou um erro foi encontrado: {apelido_do_erro}')
