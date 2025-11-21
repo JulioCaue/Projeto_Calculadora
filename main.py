@@ -1,10 +1,23 @@
-conjunto_de_numeros=[]
 import math
+conjunto_de_numeros=[]
+
+def operação_sem_ordem(escolha_menu,conjunto_de_numeros):
+    try:
+        if int(escolha_menu)==(1):
+            return (f"resultado da soma: {sum(conjunto_de_numeros)}")
+        else:
+            return (f"resultado da multiplicação: {math.prod(conjunto_de_numeros)}")
+    except Exception as apelido_do_erro:
+        return (f'Um erro foi encontrado: {apelido_do_erro}')
 
 
 def operação_com_ordem(NumA,NumB,sinal):
-    NumA=int(NumA) 
-    NumB=int(NumB)
+    try:
+        NumA=int(NumA) 
+        NumB=int(NumB)
+    except ValueError:
+        return ('Um ou mais valores não são numeros.')
+
     if sinal==('-'):
         resultado=NumA-NumB
     else:
@@ -27,17 +40,17 @@ while True:
             #faz soma
             if int(escolha_menu)==1:
                 while True:
-                    try:    
-                        somando=input('Escolha um numero para somar ou escreva uma letra para finalizar: ')
-                        try: 
-                            somando=int(somando)
-                            conjunto_de_numeros.append(somando)
-                        except:
-                            print (f"resultado da soma: {sum(conjunto_de_numeros)}")
-                            conjunto_de_numeros=[]
-                            break
-                    except Exception as apelido_do_erro:
-                        print (f'Um erro foi encontrado: {apelido_do_erro}')
+                    try:
+                        numeros=input('Escolha um numero para somar ou escreva uma letra para finalizar: ')
+                        numeros=int(numeros)
+                        conjunto_de_numeros.append(numeros)
+                    except:
+                        resultado=operação_sem_ordem(escolha_menu,conjunto_de_numeros)
+                        print (resultado)
+                        conjunto_de_numeros=[]
+                        break
+
+
             #faz subtração
             elif int(escolha_menu)==2:
                 try:
@@ -48,20 +61,22 @@ while True:
                     print (resultado)
                 except Exception as apelido_do_erro:
                     print (f'Um erro foi encontrado: {apelido_do_erro}')
+
+
             #faz multiplicação
             elif int(escolha_menu)==3:
                 while True:
-                        try:
-                            multiplicando=input('Escolha um numero para multiplicar ou escreva uma letra para finalizar: ')
-                            try: 
-                                multiplicando=int(multiplicando)
-                                conjunto_de_numeros.append(multiplicando)
-                            except:
-                                print (f"resultado da multiplicação: {math.prod(conjunto_de_numeros)}")
-                                conjunto_de_numeros=[]
-                                break
-                        except Exception as apelido_do_erro:
-                            print (f'Um erro foi encontrado: {apelido_do_erro}')
+                    try:
+                        numeros=input('Escolha um numero para Multiplicar ou escreva uma letra para finalizar: ')
+                        numeros=int(numeros)
+                        conjunto_de_numeros.append(numeros)
+                    except:
+                        resultado=operação_sem_ordem(escolha_menu,conjunto_de_numeros)
+                        print (resultado)
+                        conjunto_de_numeros=[]
+                        break
+
+
             #faz divisão
             elif int(escolha_menu)==4:
                 try:
@@ -72,6 +87,9 @@ while True:
                     print (resultado)
                 except Exception as apelido_do_erro:
                     print (f'Um erro foi encontrado: {apelido_do_erro}')
+
+
+
         #fecha programa se opção for 5, ou printa que não faz parte.
         elif int(escolha_menu)==5:
             break
