@@ -14,9 +14,9 @@ def operação_com_ordem(sinal):
         resto=NumA%NumB
 
     if sinal==('-'):
-        print (f"resultado da subtração: {resultado}.")
+        return int (f"resultado da subtração: {resultado}.")
     else:
-        print (f"resultado da divisão: {resultado} com resto {resto}.")
+        return (f"resultado da divisão: {resultado} com resto {resto}.")
 
 while True:
     escolha_menu=input ('\n\n\n\nMenu da Calculadora\n1. Soma\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nEscolha a operação: ')
@@ -38,7 +38,8 @@ while True:
             #faz subtração
             elif int(escolha_menu)==2:
                 sinal=('-')
-                operação_com_ordem(sinal)
+                resultado=operação_com_ordem(sinal)
+                print (resultado)
 
             #faz multiplicação
             elif int(escolha_menu)==3:
@@ -54,7 +55,8 @@ while True:
             #faz divisão
             elif int(escolha_menu)==4:
                 sinal=('/')
-                operação_com_ordem(sinal)
+                resultado=operação_com_ordem(sinal)
+                print (resultado)
 
         #fecha programa se opção for 5, ou printa que não faz parte.
         elif int(escolha_menu)==5:
