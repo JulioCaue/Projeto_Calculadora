@@ -12,7 +12,11 @@ def operação_com_ordem(sinal):
     else:
         resultado=NumA//NumB
         resto=NumA%NumB
-    print (f"resultado da subtração: {resultado} com resto {resto}.")
+
+    if sinal==('-'):
+        print (f"resultado da subtração: {resultado}.")
+    else:
+        print (f"resultado da divisão: {resultado} com resto {resto}.")
 
 while True:
     escolha_menu=input ('\n\n\n\nMenu da Calculadora\n1. Soma\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair\nEscolha a operação: ')
